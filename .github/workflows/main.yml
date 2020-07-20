@@ -17,5 +17,5 @@ jobs:
         script: |
            cd Uploadfile
            git pull origin master
-           git status
+         
 
