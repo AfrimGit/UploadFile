@@ -2,21 +2,12 @@
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  job_one:
+    name: Deploy
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
-    - name: login to server
+    - name: testingssh    
       uses: appleboy/ssh-action@master
       with:
         host: http://88.198.172.204
@@ -27,14 +18,4 @@ jobs:
            cd Uploadfile
            git pull origin master 
            git status
-     # env:
-       # DOCKER_USER: ${{secrets.DOCKER_USER}}
-       # DOCKER_PASWWO
-       #RD: ${{secrets.DOCKER_PASSWORD}} 
-     # run: |
-        # docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
 
-    
-    - name: docker build .netapp
-      run: |
-        docker build ./ -t verzioni1
