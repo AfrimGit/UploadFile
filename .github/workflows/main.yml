@@ -19,10 +19,14 @@ jobs:
     - name: login to server
       uses: appleboy/ssh-action@master
       with:
-        host: 88.198.172.204
+        host: http://88.198.172.204
         username: root
         key: ${{ secrets.DOCKER_PASSWORD}}
         port: 22
+        script: |
+           cd Uploadfile
+           git pull origin master 
+           git status
      # env:
        # DOCKER_USER: ${{secrets.DOCKER_USER}}
        # DOCKER_PASWWO
