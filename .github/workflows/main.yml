@@ -16,6 +16,6 @@ jobs:
         port: 22
         script: |
            cd Uploadfile
-           git pull origin master 
+           git pull origin master
            git status
 
