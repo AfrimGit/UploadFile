@@ -10,7 +10,7 @@ jobs:
     - name: testingssh    
       uses: appleboy/ssh-action@master
       with:
-        host: http://88.198.172.204
+        host: 88.198.172.204
         username: root
         key: ${{ secrets.DOCKER_PASSWORD}}
         port: 22
