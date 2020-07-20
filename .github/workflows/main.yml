@@ -7,15 +7,17 @@ jobs:
     name: Deploy
     runs-on: ubuntu-latest
     steps:
-    - name: testingssh    
+    - name: executing remote ssh commands using password
       uses: appleboy/ssh-action@master
       with:
-        host: 88.198.172.204
-        username: root
-        key: ${{ secrets.DOCKER_PASSWORD}}
-        port: 22
+        host: ${{ secrets.HOST }}
+        USERNAME: ${{ secrets.USERNAME }}
+        PORT: ${{ secrets.PORT }}
+        KEY: ${{ secrets.SSHKEY }}
+        passphrase:  ${{secrets.PASSPHRASE}}
         script: |
            cd Uploadfile
            git pull origin master
+           
          
 
