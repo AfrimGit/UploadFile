@@ -21,5 +21,5 @@ jobs:
           passphrase: ${{ secrets.SSH_KEY_PASSPHRASE }}
           port: 22
           script: |
-           cd UploadFile
-            git status
+           cd ~/Documents
+            
