@@ -8,9 +8,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - name: docker build .netapp
-      run: |
-        docker build . -t verzioni1
+    - name: Dotnet Setup-i
+      uses: action/setup-dotnet@v1
+      with:
+         dotnet-verzion: 3.1
+    - name: DotnetPublish 
+      run: dotnet publish src -c Release -o Uploadfile
+    
         
     - name: Palidhje Name qetu
       uses: appleboy/ssh-action@master
@@ -22,4 +26,8 @@ jobs:
           port: 22
           script: |
            cd ~/Documents
+           
+           #- name: docker build .netapp
+    #  run: |
+     #   docker build . -t verzioni1
             
