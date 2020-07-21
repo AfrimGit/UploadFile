@@ -18,28 +18,4 @@ jobs:
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.SSH_KEY }}
           port: 22
-    script: whoami# events but only for the master branch
-on:
-  push:
-    branches: [ master ]
-jobs:
-  job_one:
-    name: Deploy
-    runs-on: ubuntu-latest
-    steps:
-    #- name: docker build .netapp
-     # run: |
-      #  docker build ./home/runner/work/ -t verzioni1
-        
-    - name: Copying files to server
-      uses: appleboy/ssh-action@master
-      #uses: appleboy/scp-action@master
-      with:
-          host: ${{ secrets.REMOTE_HOST }}
-          username: ${{ secrets.REMOTE_USER }}
-          key: ${{ secrets.SSH_KEY }}
-          passphrase: ${{ secrets.SSH_KEY_PASSPHRASE }}
-
-    
-         
-
+          script: whoami
