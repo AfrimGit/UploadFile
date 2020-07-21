@@ -1,4 +1,4 @@
-# events but only for the master branch
+# events but only for the maste branch
 on:
   push:
     branches: [ master ]
