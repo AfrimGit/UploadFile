@@ -11,7 +11,7 @@ jobs:
     - name: Dotnet Setup-i
       uses: action/setup-dotnet@v1
       with:
-         dotnet-version: 2.2.108
+         dotnet-version: 3.0.100
     - name: DotnetPublish 
       run: dotnet publish src -c Release -o Uploadfile
     - name: Copy via ssh
