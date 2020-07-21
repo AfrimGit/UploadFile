@@ -7,9 +7,10 @@ jobs:
     name: Deploy
     runs-on: ubuntu-latest
     steps:
-    #- name: docker build .netapp
-     # run: |
-      #  docker build ./home/runner/work/ -t verzioni1
+    - uses: action/checkout@v1
+    - name: docker build .netapp
+      run: |
+        docker build . -t verzioni1
         
     - name: Palidhje Name qetu
       uses: appleboy/ssh-action@master
