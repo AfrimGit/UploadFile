@@ -9,7 +9,7 @@ jobs:
     steps:
     - name: docker build .netapp
       run: |
-        docker build ./ -t verzioni1
+        docker build ./home/runner/work/ -t verzioni1
         
     - name: Copying files to server
       uses: appleboy/ssh-action@master
