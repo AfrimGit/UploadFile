@@ -11,10 +11,17 @@ jobs:
     - name: Dotnet Setup-i
       uses: action/setup-dotnet@v1
       with:
-         dotnet-verzion: 3.1
+         dotnet-version: 2.2.108
     - name: DotnetPublish 
       run: dotnet publish src -c Release -o Uploadfile
-    
+    - name: Copy via ssh
+      uses: garygrossgarten/github-action-scp@v0.5.3
+      with:
+        local: /home/runner/work/deferat/deferat/src/UploadFile/
+        remote: ~/Desktop/Uploadfile
+        host: ${{ secrets.REMOTE_HOST }}
+        username: ${{ secrets.REMOTE_USER }}
+        privateKey: ${{ secrets.REMOTE_SSH_KEY }}
         
     - name: Palidhje Name qetu
       uses: appleboy/ssh-action@master
