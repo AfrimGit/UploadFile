@@ -15,9 +15,6 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.SSH_KEY_PASSPHRASE }}
 
-          scripts: |
-           cd Uploadfile
-           git pull origin master
            
          
 
