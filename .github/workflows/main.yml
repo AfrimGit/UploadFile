@@ -1,7 +1,7 @@
 # events but only for the master branch
 on:
   push:
-    branches: [ master ]
+   # branches: [ master ]
 jobs:
   job_one:
     name: Deploy
