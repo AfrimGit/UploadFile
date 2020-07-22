@@ -17,11 +17,11 @@ jobs:
       with:
         dotnet-version: 2.2.107
     - name: Dotnet Publish
-      run: dotnet publish src -c Release -o deploy
+      run: dotnet publish UploadFile -c Release -o deploy
     - name: Copy via ssh
       uses: garygrossgarten/github-action-scp@v0.5.3
       with:
-        local: /home/runner/work/UploadFile/UploadFile/src/deploy/
+        local: /home/runner/work/UploadFile/UploadFile/deploy/
         remote: :~/Desktop/Uploadfile
         host: ${{ secrets.REMOTE_HOST }}
         username: ${{ secrets.REMOTE_USER }}
