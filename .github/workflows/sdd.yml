@@ -27,7 +27,10 @@ jobs:
         username: ${{ secrets.REMOTE_USER }}
         privateKey: ${{ secrets.SSH_KEY }}
         passphrase: ${{ secrets.SSH_KEY_PASSPHRASE }}
-    #- name: Run SSH command
+          script |
+            cd  /home/runner/work/UploadFile/UploadFile/
+            mkdir aat
+          #- name: Run SSH command
      # uses: garygrossgarten/github-action-ssh@v0.3.0
       #with:
        # command: sudo service deferat start
