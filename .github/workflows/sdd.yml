@@ -15,21 +15,21 @@ jobs:
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 2.2.108
+        dotnet-version: 2.2.107
     - name: Dotnet Publish
       run: dotnet publish src -c Release -o deploy
     - name: Copy via ssh
       uses: garygrossgarten/github-action-scp@v0.5.3
       with:
-        local: /home/runner/work/deferat/deferat/src/deploy/
-        remote: ${{ secrets.REMOTE_TARGET }}
+        local: /home/runner/work/UploadFile/UploadFile/src/deploy/
+        remote: :~/Desktop/Uploadfile
         host: ${{ secrets.REMOTE_HOST }}
         username: ${{ secrets.REMOTE_USER }}
-        privateKey: ${{ secrets.REMOTE_SSH_KEY }}
+        privateKey: ${{ secrets.SSH_KEY }}
     - name: Run SSH command
       uses: garygrossgarten/github-action-ssh@v0.3.0
       with:
         command: sudo service deferat start
         host: ${{ secrets.REMOTE_HOST }}
         username: ${{ secrets.REMOTE_USER }}
-        privateKey: ${{ secrets.REMOTE_SSH_KEY }}
+        privateKey: ${{ SSH_KEY}}
